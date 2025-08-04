@@ -1,0 +1,27 @@
+<?php
+// connection.php
+
+require_once 'constant.php';
+
+class DatabaseConnection {
+    private $connection;
+
+    public function __construct() {
+        $this->connection = new mysqli(HOST_NAME, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME);
+
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
+    }
+
+    public function getConnection() {
+        return $this->connection;
+    }
+
+    public function closeConnection() {
+        if ($this->connection) {
+            $this->connection->close();
+        }
+    }
+}
+?>
