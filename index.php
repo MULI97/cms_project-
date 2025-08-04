@@ -1,28 +1,55 @@
-<?php session_start(); ?>
+<?php
+require_once 'connection.php';
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $inputPassword = $_POST['password'];
+
+    $db = new DatabaseConnection();
+    $conn = $db->getConnection();
+
+    $stmt = $conn->prepare("SELECT userId, User_Name, Password, UserType FROM users WHERE User_Name = ? AND UserType = 'Super_User'");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        // ✅ Use password_verify to match hashed password
+        if (password_verify($inputPassword, $user['Password'])) {
+            $_SESSION['userId'] = $user['userId'];
+            $_SESSION['username'] = $user['User_Name'];
+            $_SESSION['userType'] = $user['UserType'];
+
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $error = "Invalid password.";
+        }
+    } else {
+        $error = "User not found or not a Super_User.";
+    }
+
+    $stmt->close();
+    $db->closeConnection();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Sign In - CMS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Super_User Sign-In</title>
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Super_User Sign-In</h2>
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
-        <?php endif; ?>
-        <form action="login_process.php" method="POST" class="card p-4 shadow-sm">
-            <div class="mb-3">
-                <label for="username" class="form-label">User Name</label>
-                <input type="text" name="username" id="username" class="form-control" required autofocus>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Sign In</button>
-        </form>
-    </div>
+<body>
+    <h2>Super_User Sign-In</h2>
+    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+    <form method="POST" action="">
+        <input type="text" name="username" placeholder="Username" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <button type="submit">Sign In</button>
+    </form>
 </body>
 </html>
