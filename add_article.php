@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/db_connect.php';
+require_once 'connection.php';
 
 // Redirect if not logged in
 if (!isset($_SESSION['user_id']) || !in_array($_SESSION['usertype'], ['Super_User', 'Administrator', 'Author'])) {

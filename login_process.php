@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "includes/dbConnect.php";
+require_once 'connection.php';
 
 $error = "";
 

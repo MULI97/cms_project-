@@ -2,7 +2,7 @@
 // add_user.php
 
 session_start();
-require_once 'includes/db_connect.php';
+require_once 'connection.php';
 
 // Redirect if not logged in or not Super_User
 if (!isset($_SESSION['user_id']) || $_SESSION['usertype'] !== 'Super_User') {

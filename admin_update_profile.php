@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbConnect.php';
+require_once 'connection.php';
 
 // Check if admin is logged in
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'Administrator') {

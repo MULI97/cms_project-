@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbConnect.php';
+require_once 'connection.php';
 
 // Redirect if not logged in or not an Author
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'Author') {

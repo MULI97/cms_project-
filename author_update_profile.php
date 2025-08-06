@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'dbConnect.php';
+require_once 'connection.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'Author') {
     header("Location: index.php");

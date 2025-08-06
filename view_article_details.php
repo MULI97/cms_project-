@@ -2,7 +2,8 @@
 // view_article_details.php
 
 session_start();
-require_once 'includes/db_connect.php';
+require_once 'connection.php';
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
