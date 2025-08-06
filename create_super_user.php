@@ -5,24 +5,23 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Connect to database
-require_once '../connection.php'; // Adjusted path if necessary
+require_once 'connection.php';
 
 $db = new DatabaseConnection();
 $conn = $db->getConnection();
 
-// Define Super_User account details
+
 $fullName     = "System Superuser";
 $email        = "superuser@example.com";
 $phoneNumber  = "0712345678";
 $username     = "superadmin";
-$password     = "SuperSecure123"; // This is the plain password
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Securely hash it
+$password     = "SuperSecure123"; 
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 $userType     = "Super_User";
 $accessTime   = date("Y-m-d H:i:s");
 $profileImage = "default.png";
 $address      = "HQ, Nairobi";
 
-// Prepare and execute INSERT statement
 $stmt = $conn->prepare("INSERT INTO users 
     (Full_Name, email, phone_Number, User_Name, Password, UserType, AccessTime, profile_Image, Address) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
