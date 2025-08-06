@@ -1,0 +1,24 @@
+.table-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-list th,
+.table-list td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.table-list th {
+    background-color: #f2f2f2;
+}
+
+.table-list td a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.table-list td a:hover {
+    text-decoration: underline;
+}

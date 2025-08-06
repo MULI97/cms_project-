@@ -20,6 +20,45 @@ h2 {
 .welcome {
     margin-top: 20px;
     font-size: 18px;
+    font-weight: bold;
+}
+
+/* Dashboard Buttons Layout */
+.dashboard-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.dashboard-buttons form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
 }
 
 /* Article Listing Styles */
@@ -52,4 +91,36 @@ h2 {
 
 .article-card a:hover {
     text-decoration: underline;
+}
+
+/* Admin Dashboard Buttons */
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.dashboard-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.dashboard-btn:hover {
+    background-color: #0056b3;
+}
+
+.dashboard-btn.logout {
+    background-color: #dc3545;
+}
+
+.dashboard-btn.logout:hover {
+    background-color: #c82333;
 }
