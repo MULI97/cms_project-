@@ -27,10 +27,23 @@ $username = $_SESSION['username'];
         Hello, <strong><?= htmlspecialchars($username) ?></strong>!
     </div>
 
-    <!-- Secure logout via POST -->
-    <form method="POST" action="logout.php">
-        <button type="submit" class="btn btn-danger">Log Out</button>
-    </form>
+    <div class="dashboard-buttons">
+        <form action="update_profile.php" method="get">
+            <button type="submit" class="btn">Update My Profile</button>
+        </form>
+
+        <form action="manage_users.php" method="get">
+            <button type="submit" class="btn">Manage Other Users</button>
+        </form>
+
+        <form action="view_articles.php" method="get">
+            <button type="submit" class="btn">View Articles</button>
+        </form>
+
+        <form action="logout.php" method="post">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
 </div>
 
 </body>

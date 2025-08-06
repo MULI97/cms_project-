@@ -1,9 +1,16 @@
 <?php
-session_start();
-session_unset();     // Clear all session variables
-session_destroy();   // Destroy the session
+// logout.php
 
-// OPTIONAL: Clear session cookie for security
+session_start();
+
+// Unset all session variables
+$_SESSION = [];
+
+// Destroy session
+session_unset();
+session_destroy();
+
+// Delete session cookie for extra security
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -12,7 +19,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Redirect to the sign-in page (adjust path as needed)
-header("Location: ../index.php");
+// Redirect to index page
+header("Location: index.php");
 exit();
 ?>

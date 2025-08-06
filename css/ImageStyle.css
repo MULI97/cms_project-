@@ -1,7 +1,6 @@
-/* ImageStyle.css */
-
-img {
-    max-width: 100%;
+img.logo {
+    width: 100px;
     height: auto;
-    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
 }
