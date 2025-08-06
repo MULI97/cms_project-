@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // manage_users.php
 
 session_start();
@@ -133,7 +135,7 @@ $users = $stmt->get_result();
         <?php endwhile; ?>
     </table>
 
-    <p><a href="dashboard.php">← Back to Dashboard</a></p>
+    <p><a href="dashboard_super.php">← Back to Dashboard</a></p>
 </div>
 
 </body>

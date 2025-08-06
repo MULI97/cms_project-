@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 require_once 'connection.php';
 
@@ -27,13 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Redirect based on role
                 if ($role == "Super_User") {
-                    header("Location: super_user_dashboard.php");
+                    header("Location: dashboard_super.php");
                     exit;
                 } elseif ($role == "Administrator") {
-                    header("Location: admin_dashboard.php");
+                    header("Location: dashboard_admin.php");
                     exit;
                 } elseif ($role == "Author") {
-                    header("Location: author_dashboard.php");
+                    header("Location: dashboard_author.php");
                     exit;
                 } else {
                     $error = "Unknown user role.";
