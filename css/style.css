@@ -1,0 +1,15 @@
+/* css/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('FormStyle.css');
+@import url('ImageStyle.css');
+@import url('StructureStyle.css');
+@import url('TopnavStyle.css');
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #eef2f3;
+    padding: 50px;
+}

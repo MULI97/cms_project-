@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Super_User Sign-In</title>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <h2>Super_User Sign-In</h2>
