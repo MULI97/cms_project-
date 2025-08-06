@@ -7,7 +7,7 @@ class DatabaseConnection {
     private $connection;
 
     public function __construct() {
-        $this->connection = new mysqli(HOST_NAME, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME);
+        $this->connection = new mysqli(HOST_NAME, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME); // Object-oriented style
 
         if ($this->connection->connect_error) {
             die("Connection failed: " . $this->connection->connect_error);
